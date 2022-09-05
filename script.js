@@ -65,12 +65,14 @@ const holdScore = function () {
     scoreSum_1 += currentScoreSum_1;
     score_1.textContent = scoreSum_1;
     currentScoreSum_1 = 0;
+    currentScore_1.textContent = currentScoreSum_1;
     classSwapper();
     activePlayer = false;
   } else {
     scoreSum_2 += currentScoreSum_2;
     score_2.textContent = scoreSum_2;
     currentScoreSum_2 = 0;
+    currentScore_2.textContent = currentScoreSum_2;
     classSwapper();
     activePlayer = true;
   }
@@ -78,15 +80,6 @@ const holdScore = function () {
 
 // rollDice function (random number up tp 6)
 const rollDice = function () {
-  // CHECKING THE WINNER PLAYER
-  if (scoreSum_1 >= 100) {
-    alert(`Player 1 is the winner`);
-    reset();
-  } else if (scoreSum_2 >= 100) {
-    alert(`Player 2 is the winner`);
-    reset();
-  }
-
   if (activePlayer) {
     dice.setAttribute("src", `dice-${diceNumber}.png`);
     if (diceNumber > 1) {
@@ -111,6 +104,14 @@ const rollDice = function () {
       currentScore_2.textContent = currentScoreSum_2;
       activePlayer = true;
     }
+  }
+  // CHECKING THE WINNER PLAYER
+  if (scoreSum_1 >= 20) {
+    console.log(`Player 1 is the winner`);
+    reset();
+  } else if (scoreSum_2 >= 20) {
+    console.log(`Player 2 is the winner`);
+    reset();
   }
   diceNumber = Math.trunc(Math.random() * 6 + 1);
 };
