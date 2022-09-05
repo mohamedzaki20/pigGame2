@@ -113,7 +113,6 @@ const rollDice = function () {
     console.log(`Player 2 is the winner`);
     reset();
   }
-  diceNumber = Math.trunc(Math.random() * 6 + 1);
 };
 
 roll.addEventListener("click", rollDice);
